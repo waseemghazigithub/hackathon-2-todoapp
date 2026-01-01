@@ -10,7 +10,7 @@ import sys
 tasks = []
 next_id = 1
 
-def add_task(title):
+def add_task(title, code):
     """Add a new task to the in-memory list."""
     global next_id
     if not title:
@@ -20,6 +20,7 @@ def add_task(title):
     task = {
         'id': next_id,
         'title': title,
+        'code': code,
         'is_completed': False
     }
     tasks.append(task)
@@ -30,11 +31,12 @@ def get_all_tasks():
     """Return the list of all tasks."""
     return tasks
 
-def update_task(task_id, new_title):
-    """Update title of an existing task."""
+def update_task(task_id, new_title, new_code):
+    """Update title and code of an existing task."""
     for t in tasks:
         if t['id'] == task_id:
             t['title'] = new_title
+            t['code'] = new_code
             return True
     return False
 
@@ -76,7 +78,8 @@ def main():
 
         if choice == '1':
             title = input("Enter task title: ").strip()
-            task = add_task(title)
+            code = input("Enter task code: ").strip()
+            task = add_task(title, code)
             if task:
                 print(f"Task added successfully! ID: {task['id']}")
         elif choice == '2':
@@ -87,12 +90,13 @@ def main():
                 print("\n--- Current Tasks ---")
                 for t in current_tasks:
                     status = "[Done]" if t['is_completed'] else "[ ]"
-                    print(f"{t['id']}. {status} {t['title']}")
+                    print(f"{t['id']}. {status} {t['title']} ({t['code']})")
         elif choice == '3':
             try:
                 task_id = int(input("Enter task ID to update: "))
                 new_title = input("Enter new title: ").strip()
-                if update_task(task_id, new_title):
+                new_code = input("Enter new code: ").strip()
+                if update_task(task_id, new_title, new_code):
                     print("Task updated successfully!")
                 else:
                     print(f"Error: Task ID {task_id} not found.")

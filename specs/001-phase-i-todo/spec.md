@@ -17,14 +17,14 @@ As a single user, I want to add a description for a task and immediately see it 
 
 **Acceptance Scenarios**:
 
-1. **Given** the app is running, **When** I select "Add Task" and enter "Buy milk", **Then** the system confirms "Task added successfully".
-2. **Given** one task exists, **When** I select "View Tasks", **Then** I see a list containing "Buy milk" with a status of "Incomplete" and a unique numeric ID.
+1. **Given** the app is running, **When** I select "Add Task" and enter "Buy milk" and a code "TASK-001", **Then** the system confirms "Task added successfully".
+2. **Given** one task exists, **When** I select "View Tasks", **Then** I see a list containing "Buy milk" with status "Incomplete", code "TASK-001", and a unique numeric ID.
 
 ---
 
 ### User Story 2 - Complete and Update Tasks (Priority: P2)
 
-As a user, I want to mark tasks as finished or change their details if my plans change.
+As a user, I want to mark tasks as finished or change their details (title or code) if my plans change.
 
 **Why this priority**: Essential for managing the lifecycle of a task beyond just recording it.
 
@@ -33,7 +33,7 @@ As a user, I want to mark tasks as finished or change their details if my plans 
 **Acceptance Scenarios**:
 
 1. **Given** task ID 1 exists and is "Incomplete", **When** I select "Mark Complete" for ID 1, **Then** the task status changes to "Complete".
-2. **Given** task ID 1 exists, **When** I select "Update Task" for ID 1 and enter "Buy soy milk", **Then** the task description is changed.
+2. **Given** task ID 1 exists, **When** I select "Update Task" for ID 1 and enter "Buy soy milk" and new code "SOY-001", **Then** the task details are changed.
 
 ---
 
@@ -63,6 +63,7 @@ As a user, I want to remove tasks from my list that are no longer relevant.
 - **FR-002**: The system MUST store tasks in an in-memory data structure (e.g., a list of dictionaries).
 - **FR-003**: Each task MUST have a unique, system-generated integer ID.
 - **FR-004**: Each task MUST have a text description (title).
+- **FR-007**: Each task MUST have a unique reference code.
 - **FR-005**: Each task MUST have a boolean status (Complete/Incomplete).
 - **FR-006**: The system MUST exit cleanly when the user selects the "Exit" option.
 
@@ -71,6 +72,7 @@ As a user, I want to remove tasks from my list that are no longer relevant.
 - **Task**:
   - `id`: Integer, auto-incrementing, unique per session.
   - `title`: String, the description of the work to be done.
+  - `code`: String, a unique code for the task.
   - `is_completed`: Boolean, defaults to False.
 
 ## Success Criteria *(mandatory)*

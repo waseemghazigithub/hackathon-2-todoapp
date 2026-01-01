@@ -36,10 +36,10 @@
 
 ### Implementation for User Story 1
 
-- [x] T006 [US1] Implement `add_task(title)` logic per contract in `src/todo.py` (Ref: contracts/logic.md:10)
-- [x] T007 [US1] Implement "Add Task" CLI flow (Option 1) including input capture in `src/todo.py` (Ref: plan.md:69)
+- [x] T006 [US1] Implement `add_task(title, code)` logic per contract in `src/todo.py` (Ref: contracts/logic.md:10)
+- [x] T007 [US1] Implement "Add Task" CLI flow (Option 1) including title and code capture in `src/todo.py` (Ref: plan.md:69)
 - [x] T008 [US1] Implement `get_all_tasks()` logic per contract in `src/todo.py` (Ref: contracts/logic.md:15)
-- [x] T009 [US1] Implement "View Tasks" CLI flow (Option 2) with empty list handling in `src/todo.py` (Ref: spec.md:54)
+- [x] T009 [US1] Implement "View Tasks" CLI flow (Option 2) displaying code with empty list handling in `src/todo.py` (Ref: spec.md:54)
 
 **Checkpoint**: User Story 1 complete. Basic CRUD (Create/Read) is functional.
 
@@ -47,14 +47,14 @@
 
 ## Phase 4: User Story 2 - Complete and Update Tasks (Priority: P2)
 
-**Goal**: Allow users to modify task descriptions and toggle completion status.
+**Goal**: Allow users to modify task descriptions and codes and toggle completion status.
 
-**Independent Test**: Add a task, then use Option 3 to update title and Option 4 to toggle status. Verify changes via Option 2.
+**Independent Test**: Add a task, then use Option 3 to update title/code and Option 4 to toggle status. Verify changes via Option 2.
 
 ### Implementation for User Story 2
 
-- [x] T010 [US2] Implement `update_task(task_id, new_title)` logic in `src/todo.py` (Ref: contracts/logic.md:19)
-- [x] T011 [US2] Implement "Update Task" CLI flow (Option 3) with ID validation in `src/todo.py` (Ref: plan.md:71)
+- [x] T010 [US2] Implement `update_task(task_id, new_title, new_code)` logic in `src/todo.py` (Ref: contracts/logic.md:19)
+- [x] T011 [US2] Implement "Update Task" CLI flow (Option 3) with title/code update and ID validation in `src/todo.py` (Ref: plan.md:71)
 - [x] T012 [US2] Implement `toggle_task_status(task_id)` logic in `src/todo.py` (Ref: contracts/logic.md:24)
 - [x] T013 [US2] Implement "Mark Complete/Incomplete" CLI flow (Option 4) in `src/todo.py` (Ref: plan.md:61-64)
 
